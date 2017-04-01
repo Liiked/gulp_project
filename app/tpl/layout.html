@@ -1,0 +1,26 @@
+@@include('head.html')
+
+<p> 这是 layout 的内容 </p>
+<span class="input-group-btn">
+    <button type="button" class="btn btn-default">Go!</button>
+</span>
+
+<div class="alert">
+    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+    <strong>Title!</strong> Alert body ...
+</div>
+
+
+<div class="alert alert-success">
+    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+    <strong>Title!</strong> Alert body ...
+</div>
+<script>
+    // require(["main"], function() {
+
+    // })
+    require(["sync"], function() {
+        console.log('fff')
+    })
+</script>
+@@include('foot.html')

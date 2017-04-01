@@ -1,0 +1,27 @@
+@@include('head.html')
+
+
+<div class="panel panel-default">
+    <div class="panel-body">
+        Basic panel example
+        <div class="alert alert-warning">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+            <strong>Title!</strong> Alert body ...
+        </div>
+        <div id="app">
+            {{aaa}}
+        </div>
+
+    </div>
+</div>
+<script>
+    require(['Vue'], function(Vue) {
+        new Vue({
+            el: '#app',
+            data: {
+                aaa: 'hahah'
+            }
+        })
+    })
+</script>
+@@include('foot.html')

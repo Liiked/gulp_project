@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>app首页</title>
+    <script src="https://cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+    <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://cdn.bootcss.com/require.js/2.3.3/require.js"></script>
+    <script src="../js/require-config.js"></script>
+
+    <script type="text/javascript">
+        require(["sync"]);
+    </script>
+</head>
+
+<body>
+
+<p> 这是 layout 的内容 </p>
+<span class="input-group-btn">
+    <button type="button" class="btn btn-default">Go!</button>
+</span>
+
+<div class="alert">
+    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+    <strong>Title!</strong> Alert body ...
+</div>
+
+
+<div class="alert alert-success">
+    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+    <strong>Title!</strong> Alert body ...
+</div>
+<script>
+    // require(["main"], function() {
+
+    // })
+    require(["sync"], function() {
+        console.log('fff')
+    })
+</script>
+</body>
+
+</html>

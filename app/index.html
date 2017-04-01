@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>app首页</title>
+    <script src="https://cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+    <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#">导航</a>
+                </div>
+                <div class="navbar-collapse">
+                    <ul class="nav navbar-nav">
+                        <li><a href="html/component.html">组件</a></li>
+                        <li><a href="html/router.html">路由</a></li>
+                        <li><a href="html/redirect.html">路由重定向</a></li>
+                        <li><a href="html/require.html">AMD异步模块定义</a></li>
+                        <li><a href="html/layout.html">gulp-file模块化</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+    <div class="aaa">
+        哈哈
+    </div>
+    <div id="example">
+        <p>Original message: "{{ message }}"</p>
+        <p>Computed reversed message: "{{ reversedMessage() }}"</p>
+        <p>Now: "{{ now() }}"</p>
+    </div>
+    <div id="watch-example">
+        <p>
+            Ask a yes/no question:
+            <input v-model="question">
+        </p>
+        <p>{{ answer }}</p>
+    </div>
+</body>
+
+<script src="https://cdn.bootcss.com/vue/2.2.2/vue.js"></script>
+<script src="js/test.js"></script>
+
+</html>

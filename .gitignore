@@ -1,0 +1,7 @@
+.DS_Store
+*.pyc
+*.swp
+web/static/checker.jpg
+admin/static/checker.jpg
+*.log
+node_modules
