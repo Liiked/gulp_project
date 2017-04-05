@@ -2,7 +2,7 @@ define(function() {
     var route = {
         '/require': 'AMD异步模块定义',
         '/layout': '测试合成gulp-file',
-        '/router': '路由'
+        '/router': '路由',
     }
 
     var path = '',
