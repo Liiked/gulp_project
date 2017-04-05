@@ -22,8 +22,10 @@ gulp.task('browserSync', function() {
     browserSync({
         server: {
             baseDir: 'app',
-            index: "html/index.html"
+            // index: "html/index.html"
         }
+    }, {
+        proxy: 'liik.yidao.info'
     })
 })
 
@@ -37,16 +39,6 @@ gulp.task('useref', function() {
         .pipe(useref())
         .pipe(gulp.dest('dist'))
 });
-
-// gulp.task('useref', function() {
-//     return gulp.src('app/js/**/*.js')
-//         .pipe(uglify()) // Uglifies Javascript files
-//         .pipe(rename({ suffix: '.min' }))
-//         .pipe(gulp.dest('app/jsMin'))
-//         .pipe(browserSync.reload({
-//             stream: true
-//         }))
-// });
 
 
 // 开发模式
