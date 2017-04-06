@@ -6,3 +6,4 @@ admin/static/checker.jpg
 *.log
 node_modules
 .vscode
+launch.json
