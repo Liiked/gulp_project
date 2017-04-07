@@ -102,6 +102,7 @@ gulp.task('htmlmin', function() {
     gulp.src('app/html/*.html')
         .pipe(htmlmin({
             removeComments: true,
+            // collapseWhitespace: true, //压缩HTML
             removeEmptyAttributes: true,
             minifyJS: true,
             minifyCSS: true
