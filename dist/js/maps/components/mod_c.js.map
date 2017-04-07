@@ -1,0 +1,1 @@
+{"version":3,"sources":["components/mod_c.js"],"names":["define","good","console","log"],"mappings":"AAAAA,OAAO,WACH,YACA,QACIC,KAAM,WACFC,QAAQC,IAAI","file":"../../components/mod_c.js","sourcesContent":["define(function() {\r\n    'use strict';\r\n    return {\r\n        good: function() {\r\n            console.log('ccc')\r\n        }\r\n    }\r\n});"]}

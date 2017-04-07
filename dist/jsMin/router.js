@@ -1,1 +1,0 @@
-define(function(){var e={"/require":"AMD异步模块定义","/layout":"测试合成gulp-file","/router":"路由"},t="";return{setTitle:function(i){if(t=/\/\w+\./.exec(i)[0].split(".")[0],console.log(t),e[t]){document.title=e[t];try{require(["business"+t])}catch(e){console.log(e)}}}}});

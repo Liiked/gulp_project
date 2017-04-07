@@ -3,13 +3,15 @@ var sass = require('gulp-sass')
 var browserSync = require('browser-sync')
 var uglify = require('gulp-uglify')
 var rename = require('gulp-rename');
-var gulpIf = require('gulp-if');
+// var gulpIf = require('gulp-if');
 var minifyCSS = require('gulp-minify-css');
-var useref = require('gulp-useref');
+// var useref = require('gulp-useref');
 var fileinclude = require('gulp-file-include');
 var sequence = require('gulp-sequence')
 var prefixer = require('gulp-autoprefixer')
 var htmlmin = require('gulp-htmlmin')
+var clean = require('gulp-clean')
+var sourcemap = require('gulp-sourcemaps')
     // var jslint = require('gulp-jslint')
 
 gulp.task('sass', function() {
@@ -32,16 +34,16 @@ gulp.task('browserSync', function() {
     })
 })
 
-gulp.task('useref', function() {
+// gulp.task('useref', function() {
 
-    return gulp.src('app/*.html')
-        // Minifies only if it's a CSS file
-        .pipe(gulpIf('*.css', minifyCSS()))
-        // Uglifies only if it's a Javascript file
-        .pipe(uglify())
-        .pipe(useref())
-        .pipe(gulp.dest('dist'))
-});
+//     return gulp.src('app/*.html')
+//         // Minifies only if it's a CSS file
+//         .pipe(gulpIf('*.css', minifyCSS()))
+//         // Uglifies only if it's a Javascript file
+//         .pipe(uglify())
+//         .pipe(useref())
+//         .pipe(gulp.dest('dist'))
+// });
 
 // html模块转html
 gulp.task('fileinclude', function() {
@@ -92,10 +94,12 @@ gulp.task('cssmin', function() {
 
 //压缩js文件
 gulp.task('jsmin', function() {
-    gulp.src('app/js/*.js')
+    gulp.src(['app/js/**/*.js', '!app/js/vendor/*.js'])
+        .pipe(sourcemap.init())
         .pipe(uglify())
         // .pipe(rename({ suffix: '.min' }))
-        .pipe(gulp.dest('dist/jsmin'));
+        .pipe(sourcemap.write('/maps'))
+        .pipe(gulp.dest('dist/js'));
 });
 
 gulp.task('htmlmin', function() {
