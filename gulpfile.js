@@ -65,9 +65,9 @@ gulp.task('watch', ['browserSync', 'sass'], function() {
     gulp.watch('app/js/**/*.js', browserSync.reload);
 })
 
-
+// 清理文件
 gulp.task('clean', function() {
-    gulp.src(['dist/css/*', 'dist/js/*'], { read: false })
+    gulp.src(['dist/css/**/*.css', 'dist/js/**/*.js'], { read: false })
         .pipe(clean());
 });
 
@@ -113,6 +113,8 @@ gulp.task('htmlmin', function() {
         }))
         .pipe(gulp.dest('dist/html'));
 });
+
+
 
 
 
