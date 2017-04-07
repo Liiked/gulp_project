@@ -3,6 +3,7 @@ define(function() {
         '/require': 'AMD异步模块定义',
         '/layout': '测试合成gulp-file',
         '/router': '路由',
+        '/jq_in_require': '在require中使用jq',
     }
 
     var path = '',
@@ -21,7 +22,6 @@ define(function() {
             } catch (error) {
                 console.log(error)
             }
-
         }
     }
 

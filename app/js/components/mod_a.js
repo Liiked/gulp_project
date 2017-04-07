@@ -1,8 +1,15 @@
 define(function() {
-    'use strict';
+    is_login = false
     return {
         good: function() {
-            console.log('aaa')
+            $.ajax({
+                type: "get",
+                url: "/api/program?a=get_cart_num",
+                dataType: "json",
+                success: function(response) {
+                    console.log(response);
+                }
+            });
         }
     }
 });
