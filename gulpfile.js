@@ -92,13 +92,25 @@ gulp.task('cssmin', function() {
 //         .pipe(jslint.reporter('default'));
 // });
 
+// 移动vendor
+gulp.task('movejs', function() {
+    return gulp.src('app/js/vendor/*.js')
+        .pipe(gulp.dest('dist/js/vendor'))
+});
+
+// 移动image
+gulp.task('movejs', function() {
+    return gulp.src('app/js/vendor/*.js')
+        .pipe(gulp.dest('dist/js/vendor'))
+});
+
 //压缩js文件
 gulp.task('jsmin', function() {
     gulp.src(['app/js/**/*.js', '!app/js/vendor/*.js'])
-        .pipe(sourcemap.init())
+        // .pipe(sourcemap.init())
         .pipe(uglify())
         // .pipe(rename({ suffix: '.min' }))
-        .pipe(sourcemap.write('/maps'))
+        // .pipe(sourcemap.write('/maps'))
         .pipe(gulp.dest('dist/js'));
 });
 
@@ -115,8 +127,5 @@ gulp.task('htmlmin', function() {
 });
 
 
-
-
-
 // 部署
-gulp.task('deployment', ['css-min', 'js-min']);
+gulp.task('deployment', sequence(['clean', 'movejs', 'cssmin', 'jsmin'], 'htmlmin'));
