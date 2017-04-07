@@ -7,7 +7,10 @@ var gulpIf = require('gulp-if');
 var minifyCSS = require('gulp-minify-css');
 var useref = require('gulp-useref');
 var fileinclude = require('gulp-file-include');
-// var runSequence = require('run-sequence');
+var sequence = require('gulp-sequence')
+var prefixer = require('gulp-autoprefixer')
+var htmlmin = require('gulp-htmlmin')
+    // var jslint = require('gulp-jslint')
 
 gulp.task('sass', function() {
     return gulp.src('app/scss/**/*.scss')
@@ -66,12 +69,26 @@ gulp.task('clean', function() {
         .pipe(clean());
 });
 
-//压缩css文件
+//压缩css文件和prefixer
 gulp.task('cssmin', function() {
     gulp.src('app/css/*.css')
+        .pipe(prefixer({
+            browsers: ['last 2 versions', 'Android >= 4.0'],
+            cascade: true, //是否美化属性值 默认：true 像这样：
+            //-webkit-transform: rotate(45deg);
+            //        transform: rotate(45deg);
+            remove: true //是否去掉不必要的前缀 默认：true 
+        }))
         .pipe(minifyCSS())
         .pipe(gulp.dest('dist/css'));
 });
+
+//js检测
+// gulp.task('jslint', function() {
+//     gulp.src('app/js/*.js')
+//         .pipe(jslint())
+//         .pipe(jslint.reporter('default'));
+// });
 
 //压缩js文件
 gulp.task('jsmin', function() {
@@ -80,6 +97,19 @@ gulp.task('jsmin', function() {
         // .pipe(rename({ suffix: '.min' }))
         .pipe(gulp.dest('dist/jsmin'));
 });
+
+gulp.task('htmlmin', function() {
+    gulp.src('app/html/*.html')
+        .pipe(htmlmin({
+            removeComments: true,
+            removeEmptyAttributes: true,
+            minifyJS: true,
+            minifyCSS: true
+        }))
+        .pipe(gulp.dest('dist/html'));
+});
+
+
 
 // 部署
 gulp.task('deployment', ['css-min', 'js-min']);
