@@ -3,8 +3,9 @@ var sass = require('gulp-sass')
 var browserSync = require('browser-sync')
 var uglify = require('gulp-uglify')
 var rename = require('gulp-rename');
-// var gulpIf = require('gulp-if');
+var gulpIf = require('gulp-if');
 var minifyCSS = require('gulp-minify-css');
+var sprity = require('sprity');
 // var useref = require('gulp-useref');
 var fileinclude = require('gulp-file-include');
 var sequence = require('gulp-sequence')
@@ -56,6 +57,18 @@ gulp.task('fileinclude', function() {
         .pipe(browserSync.reload({
             stream: true
         }))
+});
+
+
+gulp.task('sprites', function() {
+    return sprity.src({
+            src: 'app/images/**/*.{png,jpg}',
+            style: 'app/sprite.css',
+            // ... other optional options 
+            // for example if you want to generate scss instead of css 
+            processor: 'sass', // make sure you have installed sprity-sass 
+        })
+        .pipe(gulpif('*.png', gulp.dest('./dist/img/'), gulp.dest('./dist/css/')))
 });
 
 // 开发模式
