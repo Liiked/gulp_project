@@ -5,7 +5,7 @@ var uglify = require('gulp-uglify')
 var rename = require('gulp-rename');
 var gulpIf = require('gulp-if');
 var minifyCSS = require('gulp-minify-css');
-var sprity = require('sprity');
+var spritesmith = require('gulp.spritesmith');
 // var useref = require('gulp-useref');
 var fileinclude = require('gulp-file-include');
 var sequence = require('gulp-sequence')
@@ -59,17 +59,15 @@ gulp.task('fileinclude', function() {
         }))
 });
 
-
-gulp.task('sprites', function() {
-    return sprity.src({
-            src: 'app/images/**/*.{png,jpg}',
-            style: 'app/sprite.css',
-            // ... other optional options 
-            // for example if you want to generate scss instead of css 
-            processor: 'sass', // make sure you have installed sprity-sass 
-        })
-        .pipe(gulpif('*.png', gulp.dest('./dist/img/'), gulp.dest('./dist/css/')))
+gulp.task('sprite', function() {
+    var spriteData = gulp.src('app/images/*.jpg')
+        .pipe(spritesmith({
+            imgName: 'sprite.png',
+            cssName: 'sprite.css'
+        }));
+    return spriteData.pipe(gulp.dest('app/sprite'));
 });
+
 
 // 开发模式
 gulp.task('watch', ['browserSync', 'sass'], function() {
