@@ -26,14 +26,10 @@ var YD = function() {
     }
 }
 
-YD()
-
 require.onError = function(msg) {
     console.warn(msg)
 }
 
 require(['router'], function(router) {
-    // console.log(is_login)
-    console.log(YD);
     router.setTitle(location.pathname)
 })
