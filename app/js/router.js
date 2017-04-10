@@ -17,11 +17,7 @@ define(function() {
                 return
             }
             document.title = route[pathname]
-            try {
-                require(['business' + pathname])
-            } catch (error) {
-                console.log(error)
-            }
+            require(['business' + pathname])
         }
     }
 

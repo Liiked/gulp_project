@@ -16,13 +16,24 @@ require.config({
 
     })
     // 全局变量
-is_login = false
+
+
+var YD = function() {
+    return {
+        test: function() {
+            console.log('aaaaa');
+        }
+    }
+}
+
+YD()
 
 require.onError = function(msg) {
     console.warn(msg)
 }
 
 require(['router'], function(router) {
-    console.log(is_login)
+    // console.log(is_login)
+    console.log(YD);
     router.setTitle(location.pathname)
 })

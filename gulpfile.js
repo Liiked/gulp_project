@@ -59,6 +59,8 @@ gulp.task('fileinclude', function() {
         }))
 });
 
+
+// 雪碧图生成
 gulp.task('sprite', function() {
     var spriteData = gulp.src('app/images/*.jpg')
         .pipe(spritesmith({
