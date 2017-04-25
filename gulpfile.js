@@ -13,7 +13,6 @@ var prefixer = require('gulp-autoprefixer')
 var htmlmin = require('gulp-htmlmin')
 var clean = require('gulp-clean')
 var sourcemap = require('gulp-sourcemaps')
-    // var jslint = require('gulp-jslint')
 
 gulp.task('sass', function() {
     return gulp.src('app/scss/**/*.scss')

@@ -18,21 +18,39 @@
 
 <body>
 
-<p> 这是 layout 的内容 </p>
-<span class="input-group-btn">
-    <button type="button" class="btn btn-default">Go!</button>
-</span>
-
-<div class="alert">
-    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-    <strong>链接到nginx成功!</strong> 链接成功
+<div id="head">
+    <my-head></my-head>
 </div>
 
-
-<div class="alert alert-success">
-    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-    <strong>其他测试!</strong> Alert body ...
+<div id="left">
+    <my-left>
+    </my-left>
 </div>
+
+<div id="app">
+    <router-link to="/giveID/Foo" @click.native="execBefore">Go to Foo</router-link>
+    <router-link to="/bar">Go to Bar</router-link>
+
+    <router-view></router-view>
+</div>
+
+<!--<div id="bpp">
+    <my-cmp>
+</div>-->
+
+
+
+
+<script src="https://cdn.bootcss.com/vue/2.2.2/vue.js"></script>
+<script src="https://cdn.bootcss.com/vue-router/2.3.1/vue-router.js"></script>
+<script src="../js/components/head.js"></script>
+<script src="../js/components/left.js"></script>
+<script src="../js/components/vue_router.js"></script>
+<script>
+    function execBefore() {
+        console.log('fff')
+    }
+</script>
 </body>
 
 </html>

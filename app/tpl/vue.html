@@ -1,0 +1,36 @@
+@@include('head.html')
+
+<div id="head">
+    <my-head></my-head>
+</div>
+
+<div id="left">
+    <my-left>
+    </my-left>
+</div>
+
+<div id="app">
+    <router-link to="/giveID/Foo" @click.native="execBefore">Go to Foo</router-link>
+    <router-link to="/bar">Go to Bar</router-link>
+
+    <router-view></router-view>
+</div>
+
+<!--<div id="bpp">
+    <my-cmp>
+</div>-->
+
+
+
+
+<script src="https://cdn.bootcss.com/vue/2.2.2/vue.js"></script>
+<script src="https://cdn.bootcss.com/vue-router/2.3.1/vue-router.js"></script>
+<script src="../js/components/head.js"></script>
+<script src="../js/components/left.js"></script>
+<script src="../js/components/vue_router.js"></script>
+<script>
+    function execBefore() {
+        console.log('fff')
+    }
+</script>
+@@include('foot.html')
