@@ -7,6 +7,11 @@ require.config({
             'VueRouter': ['https://cdn.bootcss.com/vue-router/2.3.0/vue-router', 'vendor/vue-router'],
             'router': 'router',
         },
+        map: {
+            '*': {
+                'css': 'vendor/css'
+            }
+        },
         shim: {
             'VueRouter': {
                 deps: ['Vue'],
@@ -27,6 +32,7 @@ var YD = function() {
 }
 
 require.onError = function(msg) {
+    console.warn(msg)
     console.warn(msg)
 }
 

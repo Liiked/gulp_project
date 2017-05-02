@@ -111,10 +111,10 @@ gulp.task('movejs', function() {
 });
 
 // 移动image
-gulp.task('movejs', function() {
-    return gulp.src('app/js/vendor/*.js')
-        .pipe(gulp.dest('dist/js/vendor'))
-});
+// gulp.task('movejs', function() {
+//     return gulp.src('app/js/vendor/*.js')
+//         .pipe(gulp.dest('dist/js/vendor'))
+// });
 
 //压缩js文件
 gulp.task('jsmin', function() {
